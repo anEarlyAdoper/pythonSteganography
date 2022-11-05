@@ -26,7 +26,7 @@ once entered on the virtual environment, navigate usign
 
     cd ..
 
-until you arrive to the main directory of the project (where main.py is located)
+until you arrive to the main directory of the project (where main.py is located).
 
 Then, just run
 
