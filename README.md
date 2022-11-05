@@ -36,9 +36,36 @@ To execute the code.
 
 ## The code
 
-"Explanation"
+Once started the program it will display the images located in the 'images' directory.
+All the images displayed there could be used for steganography but they have to meet certain requirements that are also displayed.
 
-### Exiting the virtual environment
+After selecting the image you will be prompted with a menu showing:
+
+    save, read or delete content
+
+####save
+
+Selecting this option will encrypt some text with a given password on to the photo, the algorithm is quite complex,
+so don't suffer for random people to decrypt it without the password. Is important to not modify or compress the photo 
+because it may delete the information you stored.
+
+####read
+
+Selecting this option will decrypt (if there's something saved) the photo with a given password. The photo will remain intact,
+so you can read it multiple times.
+
+####delete content
+
+Selecting this option will "clean" the image from any possible message stored, once deleted, the information can't be recovered.
+
+
+###Extra: music
+
+You will notice that there's some music running in the background while the program executes, you can stop it by deleting the
+audio file from de 'audio' directory. If you want to simply change the melody you can save a mp3 file in that same directory and 
+name it 'audio.mp3'.
+
+## Exiting the virtual environment
 
 Once you finished with the code, you can exit the virtual environment from the command line with
 

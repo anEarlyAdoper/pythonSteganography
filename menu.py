@@ -3,7 +3,7 @@ import os
 
 def select_img(directory):
     img = None
-    print("Tamaño minimo: 103x103, Formato: PNG")
+    print("Minimum size: 103x103, Format: PNG")
     print("Elements: ")
     arr = os.listdir("./" + directory)
     for element in arr:
@@ -11,12 +11,12 @@ def select_img(directory):
             print(" - " + element)
     while img is None:
         try:
-            direccion = input("\n¿Nombre de la imagen? (o refresh): ")
+            direccion = input("\n¿Image name? (o refresh to load again): ")
             direccion = directory + "/" + direccion
             img = Image.open(direccion)
         except:
             if direccion != directory + "/refresh":
-                print("\nNombre o dirección erroneo!", end='')
+                print("\nName or direction wrong!", end='')
             else:
                 print("Elements: ")
                 arr = os.listdir("./" + directory)
@@ -26,7 +26,7 @@ def select_img(directory):
     return img, direccion
 
 def mainmenu(options):
-    text = input("Opciones: " + options[0] + ", " + options[1] + " o " + options[2] + ": ")
+    text = input("Options: " + options[0] + ", " + options[1] + " o " + options[2] + ": ")
     text = text.lower()
     text = text.replace(' ', '')
     if options[0].find(text) == 0:

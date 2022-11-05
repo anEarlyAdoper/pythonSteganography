@@ -9,7 +9,7 @@ from operations import leer
 
 #define
 directory = "images"
-version = "1.2"
+version = "1.0"
 audio_name = "audio/audio.mp3"
 x=0
 y=1
@@ -22,22 +22,22 @@ limit=[0,0]
 n=[0,0]
 offset_x=16
 offset_y=17
-options=["guardar", "leer", "borrar contenido"]
+options=["save", "read", "delete content"]
 #end define
 
 def main():
-    print("¡Bienvenido! v" + version + "\n")
+    print("¡Welcome! v" + version + "\n")
     img, direccion = select_img(directory)
 
     if (img.size[0] <= 103 or img.size[1] <= 103):
-        print("La imagen es demasiado pequeña")
+        print("La image is to small")
         exit()
 
     if not (direccion.find(".png") != -1 or direccion.find(".PNG") != -1):
-        print("Formato de la imagen erroneo, no es PNG")
+        print("Wrong image format, is not PNG")
         exit()
 
-    print("\nEl tamaño de la imagen es de " + str(img.size) + "\n")
+    print("\nImage size: " + str(img.size) + "\n")
 
     respuesta = mainmenu(options)
     while respuesta == '':
@@ -49,7 +49,7 @@ def main():
     if respuesta == options[2]:
         try:
             borrar(img, pixel, direccion, audio_name)
-            print("\nLimpiado finalizado con exito!\n")
+            print("\nCleaned ok!\n")
         except:
             print("Error: " + str(sys.exc_info()[0]))
 
@@ -57,23 +57,23 @@ def main():
         try:
             extraido = leer(offset, offset_x, offset_y, x, y, final_char, pixel, limit, n, img, string_separator)
             if extraido == "" or extraido == "\n":
-                print("Error al descodificar.")
+                print("Error decrypting: wrong password.")
             else:
-                print("Mensaje leido: " + extraido)
+                print("Readed message: " + extraido)
         except:
-            print("Error al descodificar.")
+            print("Error decrypting: wrong password.")
 
     if respuesta == options[0]:
         try:
             used = guardar(img, pixel, offset, offset_x, offset_y, enter, string_separator, final_string, x, y, limit,
                            n, direccion)
-            print("\nGuardado correctamente!\n")
+            print("\nSaved correctly!\n")
             tamano_usado = "{:.2f}".format(100 * (used / (img.size[0] * img.size[1])) * 1.0)
-            print("Espacio usado: " + str(tamano_usado) + "%")
+            print("Used space: " + str(tamano_usado) + "%")
         except:
             print("Error: " + str(sys.exc_info()[0]))
 
-    input("\npresiona 'Enter' para salir.")
+    input("\npress 'Enter' to exit.")
 
 if __name__ == "__main__":
     main()

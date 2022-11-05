@@ -72,7 +72,7 @@ def borrar(img, pixel, direccion, audio_name):
         pygame.mixer.music.play(999)
     except:
         pygame.mixer.quit()
-    print("Limpiando: ")
+    print("Cleaning image: ")
     donde = 1
     pixel_x = 0
     pixel_y = 0
@@ -109,8 +109,8 @@ def leer(offset, offset_x, offset_y,x,y, final_char, pixel, limit, n, img, strin
     RGB = 0
     letra_int = 1
     extraido = ""
-    print("Procedemos a leer\n")
-    passw = input("Introduce una contraseña para desencriptar el texto: ")
+    print("Let's start reading\n")
+    passw = input("Password for decrypting: ")
     encoded = passw.encode()
     offset[x] = ord(hashlib.sha256(encoded).hexdigest()[offset_x])
     offset[y] = ord(hashlib.sha256(encoded).hexdigest()[offset_y])
@@ -152,12 +152,12 @@ def leer(offset, offset_x, offset_y,x,y, final_char, pixel, limit, n, img, strin
     return extraido
 
 def guardar(img, pixel, offset, offset_x, offset_y, enter, string_separator, final_string,x,y, limit, n, direccion):
-    print("Procedemos a guardar\n")
-    passw = input("Introduce una contraseña para encriptar el texto: ")
+    print("Let's save some text\n")
+    passw = input("Introduce password for encryption: ")
     while passw == "":
-        print("Has de introducir alguna contraseña")
-        passw = input("Introduce una contraseña para encriptar el texto: ")
-    mensaje = input("Introduce mensaje a guardar (el mensaje no puede contener el caracter 'enter'): ")
+        print("You have to type a password")
+        passw = input("Introduce password for encryption: ")
+    mensaje = input("Introduce the message to be saved (the message can't have the character 'enter'): ")
     encoded = passw.encode()
     mensaje = encripta(hashlib.sha256(encoded).hexdigest(), mensaje, enter, string_separator, final_string)
     offset[x] = ord(hashlib.sha256(encoded).hexdigest()[offset_x])
@@ -168,7 +168,7 @@ def guardar(img, pixel, offset, offset_x, offset_y, enter, string_separator, fin
     donde = 1
     RGB = 0
     used = 0
-    print("Encriptando:  ")
+    print("Encrypting:  ")
     for character in mensaje:
         mensaje_ascii.append(ord(character))
     for letter in mensaje_ascii:
@@ -204,7 +204,7 @@ def guardar(img, pixel, offset, offset_x, offset_y, enter, string_separator, fin
                     n[x] = n[x] + 1
                     pixel_x = offset[x] - n[x]
                 if limit[x] == img.size[x]:
-                    print("Error: Out of range, el texto que quieres guardar es demasiado largo para la imagen")
+                    print("Error: Out of range, the text you are trying to save is too big.")
                     exit()
     cual = used
     while cual < img.size[x]*img.size[y]:
