@@ -10,7 +10,6 @@ from operations import leer
 #define
 directory = "images"
 version = "1.0"
-audio_name = "audio/audio.mp3"
 x=0
 y=1
 enter = '\n'
@@ -48,7 +47,7 @@ def main():
 
     if respuesta == options[2]:
         try:
-            borrar(img, pixel, direccion, audio_name)
+            borrar(img, pixel, direccion)
             print("\nCleaned ok!\n")
         except:
             print("Error: " + str(sys.exc_info()[0]))

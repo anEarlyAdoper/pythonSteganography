@@ -1,5 +1,4 @@
 from random import randrange
-import pygame
 import hashlib
 import numpy
 import numpy as np
@@ -65,13 +64,7 @@ def desencripta(contrasena, texto, string_separator):
     except:
         return None
 
-def borrar(img, pixel, direccion, audio_name):
-    try:
-        pygame.mixer.init()
-        pygame.mixer.music.load(audio_name)
-        pygame.mixer.music.play(999)
-    except:
-        pygame.mixer.quit()
+def borrar(img, pixel, direccion):
     print("Cleaning image: ")
     donde = 1
     pixel_x = 0
@@ -100,10 +93,6 @@ def borrar(img, pixel, direccion, audio_name):
                 pixel_x = pixel_x + 1
     print(str(donde*10) + "%")
     img.save(direccion)
-    try:
-        pygame.mixer.music.stop()
-    except:
-        pass
 
 def leer(offset, offset_x, offset_y,x,y, final_char, pixel, limit, n, img, string_separator):
     RGB = 0
