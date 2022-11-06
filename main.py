@@ -71,7 +71,6 @@ def main():
             print("Used space: " + str(tamano_usado) + "%")
         except:
             print("Error: " + str(sys.exc_info()[0]))
-
     input("\npress 'Enter' to exit.")
 
 if __name__ == "__main__":
